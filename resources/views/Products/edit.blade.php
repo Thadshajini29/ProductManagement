@@ -8,7 +8,7 @@
 </head>
 <body>
     <table>
-        <form action="{{route('produts.updtae', product->$id)}}" method="put">
+        <form action="{{route('produts.updtae', product->$id)}}" method="POST">
             @csrf
             @method('put')
             <tr>
