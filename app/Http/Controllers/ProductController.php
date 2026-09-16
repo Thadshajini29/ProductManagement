@@ -13,6 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+
         return view('Products.index', compact('products'));
     }
 
@@ -29,7 +30,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+         $request->validate([
             'name' => 'required',
             'sku' => 'required',
             'category' => 'required',
@@ -46,6 +47,7 @@ class ProductController extends Controller
             'description' => $request->description,
 
         ]);
+
         return redirect()
             ->route('products.index')
             ->with('success', 'Product created successfully.');
@@ -57,6 +59,7 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $products = Product::findOrFail($id);
+
         return view('Products.show', compact('products'));
     }
 
@@ -66,6 +69,7 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $products = Product::findOrFail($id);
+
         return view('Products.edit', compact('products'));
     }
 
@@ -93,6 +97,7 @@ class ProductController extends Controller
             'description' => $request->description,
 
         ]);
+
         return redirect()
             ->route('products.index')
             ->with('success', 'Product Updated successfully.');
@@ -105,6 +110,7 @@ class ProductController extends Controller
     {
         $products = Product::findOrFail($id);
         $products->delete();
+
         return redirect()
             ->route('Products.index')
             ->with('success', 'Products deleted successfully.');

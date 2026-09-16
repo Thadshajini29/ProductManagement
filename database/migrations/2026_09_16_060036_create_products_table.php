@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use phpDocumentor\Reflection\PseudoTypes\True_;
 
 return new class extends Migration
 {
@@ -20,9 +19,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
             $table->text('description');
-            $table->boolean('is_active')->default(True);
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
