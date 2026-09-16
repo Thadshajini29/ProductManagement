@@ -8,7 +8,7 @@
 </head>
 <body>
     <table>
-        <form action="{{route('produts.store')}}" method="put">
+        <form action="{{route('produts.store')}}" method="POST">
             @csrf
             <tr>
                 <td>
